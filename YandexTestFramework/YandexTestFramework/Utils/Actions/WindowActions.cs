@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YandexTestFramework.Utils.Actions
 {
-    class WindowActions
+    public class WindowActions
     {
         public void SwitchBetweenWindows(IWebDriver driver, int tabIndex)
         {

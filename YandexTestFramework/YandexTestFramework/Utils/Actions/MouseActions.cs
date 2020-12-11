@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YandexTestFramework.Utils.Actions
 {
-    class MouseActions
+    public class MouseActions
     {
         public void MoveMouseToElementAndClick(IWebDriver driver, IWebElement element, int x, int y)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YandexTestFramework.Utils.Actions
 {
-    class PageElementsActions
+    public class PageElementsActions
     {
         public void InputDataInTheField(IWebElement element, string data)
         {
