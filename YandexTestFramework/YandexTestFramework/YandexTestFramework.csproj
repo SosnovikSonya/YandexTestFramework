@@ -58,11 +58,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\BrowserType.cs" />
+    <Compile Include="Configuration\DriverProvider.cs" />
+    <Compile Include="Pages\LoginPages\LoginPage.cs" />
+    <Compile Include="Pages\LoginPages\MailPage.cs" />
+    <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\SettingsPages\LanguageSettingsPage.cs" />
+    <Compile Include="Pages\SettingsPages\GeoPositionSettingsPage.cs" />
+    <Compile Include="Pages\TabNavigationPages\YandexMarketPage.cs" />
+    <Compile Include="Pages\TabNavigationPages\YandexMusicPage.cs" />
+    <Compile Include="Pages\TabNavigationPages\YandexNewsPage.cs" />
+    <Compile Include="Pages\TabNavigationPages\YandexPicturesPage.cs" />
+    <Compile Include="Pages\TabNavigationPages\YandexTranslatorPage.cs" />
+    <Compile Include="Pages\TabNavigationPages\YandexVideoPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\BaseTest.cs" />
+    <Compile Include="Tests\LoginPageTests.cs" />
+    <Compile Include="Tests\MainPageTests.cs" />
+    <Compile Include="Tests\YandexMarketPageTests.cs" />
+    <Compile Include="Tests\YandexMusicPageTests.cs" />
+    <Compile Include="Utils\Actions\MouseActions.cs" />
+    <Compile Include="Utils\Actions\PageElementsActions.cs" />
+    <Compile Include="Utils\Actions\WindowActions.cs" />
+    <Compile Include="Utils\CustomElementConditions.cs" />
+    <Compile Include="Utils\CustomWaiters.cs" />
+    <Compile Include="Utils\PageObject.cs" />
+    <Compile Include="Utils\TestData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
