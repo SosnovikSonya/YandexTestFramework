@@ -3,7 +3,6 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using System;
 
-
 namespace YandexTestFramework.Configuration
 {
     public static class DriverProvider
@@ -37,12 +36,11 @@ namespace YandexTestFramework.Configuration
             }
         }
 
-        //TODO move to another class
         private static void ConfigureDriver(IWebDriver driver)
         {
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(45);
         }
 
         private static IWebDriver GetChromeDriver()

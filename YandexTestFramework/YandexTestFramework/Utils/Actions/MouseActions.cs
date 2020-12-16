@@ -18,14 +18,16 @@ namespace YandexTestFramework.Utils.Actions
 
         public void MoveMouseTo(IWebDriver driver, IWebElement element)
         {
+            var customWaiters = new CustomWaiters();
             var actions = new OpenQA.Selenium.Interactions.Actions(driver);
-            actions.MoveToElement(element).Build().Perform();
+            actions.MoveToElement(customWaiters.WaitUntilClickable(element)).Build().Perform();
         }
 
         public void MouseClick(IWebDriver driver, IWebElement element)
         {
+            var customWaiters = new CustomWaiters();
             var actions = new OpenQA.Selenium.Interactions.Actions(driver);
-            actions.Click(element).Build().Perform();
+            actions.Click(customWaiters.WaitUntilClickable(element)).Build().Perform();
         }
     }
 }

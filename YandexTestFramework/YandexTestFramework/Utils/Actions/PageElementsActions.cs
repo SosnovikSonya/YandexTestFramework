@@ -1,9 +1,11 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YandexTestFramework.Configuration;
 
 namespace YandexTestFramework.Utils.Actions
 {
@@ -64,6 +66,36 @@ namespace YandexTestFramework.Utils.Actions
             var customWaiter = new CustomWaiters();
             customWaiter.WaitUntilAllElementsVisible(elements);
             return elements;
+        }
+
+        public IWebElement FindElementOrReturnNullBy(By by)
+        {
+            try
+            {
+                var wait = new WebDriverWait(DriverProvider.Driver, TimeSpan.FromSeconds(15));
+                IWebElement el;
+                el = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+                return el;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<IWebElement> FindElementsBy(By by)
+        {
+            try
+            {
+                var el = new List<IWebElement>(new WebDriverWait(DriverProvider.Driver, TimeSpan.FromSeconds(30))
+                    .Until(SeleniumExtras.WaitHelpers.ExpectedConditions.PresenceOfAllElementsLocatedBy(by)));
+                return el;
+            }
+            catch (NoSuchElementException ex)
+            {
+                Console.WriteLine($"Locator not found = \"{by.ToString()}\"\n Exception: {ex}");
+                throw new NoSuchElementException($"Locator not found = \"{by.ToString()}\"\n", ex);
+            }
         }
     }
 }
