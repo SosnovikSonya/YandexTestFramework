@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YandexTestFramework.Configuration;
 using YandexTestFramework.Pages.LoginPages;
 using YandexTestFramework.Pages.SettingsPages;
 using YandexTestFramework.Pages.TabNavigationPages;
@@ -94,12 +95,16 @@ namespace YandexTestFramework.Pages
 
         public void TabMoreClick()
         {
-            pageElementsActions.ClickTheButtonWhenIsClickable(TabMore);
+            var element = WebDriver.FindElement(By.XPath("//*[@data-id='more']"));
+            IJavaScriptExecutor executor = (IJavaScriptExecutor)DriverProvider.Driver;
+            executor.ExecuteScript("arguments[0].click();", pageElementsActions.GetWebElement(element));
+            //pageElementsActions.ClickTheButtonWhenIsClickable(TabMore);
         }
 
         public IList<IWebElement> GetMoreTabContent()
         {
-            return pageElementsActions.GetWebElements(TabMoreContent);
+            return pageElementsActions.FindElementsBy(By.XPath("//*[contains(@class, 'services-new__more-popup-item') and not(contains(@style, 'display: none;'))]"));
+            //return pageElementsActions.GetWebElements(elements);
         }
 
         public void CurrentLanguageClick()

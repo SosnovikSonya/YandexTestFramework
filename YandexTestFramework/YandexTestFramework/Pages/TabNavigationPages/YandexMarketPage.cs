@@ -74,13 +74,15 @@ namespace YandexTestFramework.Pages.TabNavigationPages
 
         public void AddToComparison(IWebElement ComparisonButton)
         {
-            mouseActions.MoveMouseTo(DriverProvider.Driver, ComparisonButton);
-            mouseActions.MouseClick(DriverProvider.Driver, ComparisonButton);
+            IJavaScriptExecutor executor = (IJavaScriptExecutor)DriverProvider.Driver;
+            executor.ExecuteScript("arguments[0].click();", ComparisonButton);
+            //mouseActions.MoveMouseTo(DriverProvider.Driver, ComparisonButton);
+            //mouseActions.MouseClick(DriverProvider.Driver, ComparisonButton);
         }
 
         public YandexMarketPage CompareButtonClick()
         {
-            var element = WebDriver.FindElement(By.XPath("//*[contains(text(), 'Сравнить')]"));
+            var element = pageElementsActions.FindElementOrReturnNullBy(By.XPath("//*[contains(text(), 'Сравнить')]"));
             IJavaScriptExecutor executor = (IJavaScriptExecutor)DriverProvider.Driver;
             executor.ExecuteScript("arguments[0].click();", element);
             return new YandexMarketPage(WebDriver);

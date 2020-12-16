@@ -129,22 +129,26 @@ namespace YandexTestFramework.Tests
             mainPage.TabMoreClick();
 
             var firstCityMoreTabContent = mainPage.GetMoreTabContent();
-            var firstCityContentText = new List<string>();
-            foreach (var item in firstCityMoreTabContent)
-            {
-                firstCityContentText.Add(item.Text);
-            }
+            //var firstCityContentText = new List<string>();
+            //foreach (var item in firstCityMoreTabContent)
+            //{
+            //    firstCityContentText.Add(item.Text);
+            //}
+
+            var firstCityContentText = firstCityMoreTabContent.Select(a => a.Text).ToList();
 
             mainPage.GeoPositionClick();
             geoPositionSettingsPage.ChangeCity(TestData.CityToChange);
             mainPage.TabMoreClick();
 
             var secondCityMoreTabContent = mainPage.GetMoreTabContent();
-            var secondCityContentText = new List<string>();
-            foreach (var item in secondCityMoreTabContent)
-            {
-                secondCityContentText.Add(item.Text);
-            }
+            //var secondCityContentText = new List<string>();
+            //foreach (var item in secondCityMoreTabContent)
+            //{
+            //    secondCityContentText.Add(item.Text);
+            //}
+
+            var secondCityContentText = secondCityMoreTabContent.Select(a => a.Text).ToList();
 
             Assert.AreEqual(firstCityContentText, secondCityContentText, "Content of two tabs are not equal in  different geo position");
         }
