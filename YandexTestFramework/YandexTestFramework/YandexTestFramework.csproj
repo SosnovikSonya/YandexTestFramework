@@ -102,9 +102,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\BrowserOptions.cs" />
     <Compile Include="Configuration\BrowserType.cs" />
-    <Compile Include="Configuration\DriverManager.cs" />
     <Compile Include="Configuration\DriverProvider.cs" />
     <Compile Include="Pages\LoginPages\LoginPage.cs" />
     <Compile Include="Pages\LoginPages\MailPage.cs" />

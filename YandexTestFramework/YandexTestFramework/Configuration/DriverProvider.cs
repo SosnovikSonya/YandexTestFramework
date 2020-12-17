@@ -45,6 +45,7 @@ namespace YandexTestFramework.Configuration
 
         private static IWebDriver GetChromeDriver()
         {
+            //var options = browserOptions.GetChromeOptions();
             Driver = new ChromeDriver();
             ConfigureDriver(Driver);
             return Driver;
