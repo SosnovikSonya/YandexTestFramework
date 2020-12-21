@@ -1,9 +1,6 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
+﻿using NUnit.Allure.Core;
+using NUnit.Framework;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YandexTestFramework.Configuration;
 using YandexTestFramework.Pages;
 using YandexTestFramework.Pages.SettingsPages;
@@ -12,6 +9,7 @@ using YandexTestFramework.Utils;
 
 namespace YandexTestFramework.Tests
 {
+    [AllureNUnit]
     [TestFixture]
     class MainPageTests : BaseTest
     {
