@@ -103,8 +103,8 @@
     <Compile Include="Utils\TestData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="allureConfig.Template.json" />
     <None Include="packages.config" />
+    <None Include="allureConfig.json" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

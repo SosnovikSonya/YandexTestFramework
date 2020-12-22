@@ -2,7 +2,9 @@
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using YandexTestFramework.Configuration;
@@ -30,6 +32,13 @@ namespace YandexTestFramework.Tests
             WebDriver = DriverProvider.Driver;
             WebDriver.Navigate().GoToUrl(TestData.baseUrl);
             windowActions = new WindowActions();
+        }
+
+        [OneTimeSetUp]
+        public static void BeforeTestRun()
+        {
+            //Set default working directory for NUnit to store allure results
+            Environment.CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         }
 
         [TearDown]

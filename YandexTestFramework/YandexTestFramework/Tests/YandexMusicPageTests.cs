@@ -1,9 +1,5 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Allure.Core;
+using NUnit.Framework;
 using YandexTestFramework.Configuration;
 using YandexTestFramework.Pages;
 using YandexTestFramework.Pages.LoginPages;
@@ -12,6 +8,7 @@ using YandexTestFramework.Utils;
 
 namespace YandexTestFramework.Tests
 {
+    [AllureNUnit]
     [TestFixture]
     public class YandexMusicPageTests : BaseTest
     {

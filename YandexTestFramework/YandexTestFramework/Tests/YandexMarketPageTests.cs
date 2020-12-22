@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using NUnit.Allure.Core;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ using YandexTestFramework.Utils;
 
 namespace YandexTestFramework.Tests
 {
+    [AllureNUnit]
     [TestFixture]
     public class YandexMarketPageTests : BaseTest
     {
