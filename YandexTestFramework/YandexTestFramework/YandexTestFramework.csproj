@@ -97,6 +97,7 @@
     <Compile Include="Utils\Actions\MouseActions.cs" />
     <Compile Include="Utils\Actions\PageElementsActions.cs" />
     <Compile Include="Utils\Actions\WindowActions.cs" />
+    <Compile Include="Utils\AllureResultsUtils.cs" />
     <Compile Include="Utils\CustomElementConditions.cs" />
     <Compile Include="Utils\CustomWaiters.cs" />
     <Compile Include="Utils\PageObject.cs" />

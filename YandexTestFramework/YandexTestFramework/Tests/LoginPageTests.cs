@@ -1,10 +1,5 @@
 ﻿using NUnit.Allure.Core;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YandexTestFramework.Configuration;
 using YandexTestFramework.Pages;
 using YandexTestFramework.Pages.LoginPages;
@@ -39,12 +34,13 @@ namespace YandexTestFramework.Tests
             loginPage.ClickSignIn();
 
             var userName = mailIncomingMessagesPage.GetUserName();
-
+            
             Assert.Multiple(() =>
             {
                 Assert.NotNull(userName, "User name is null");
                 Assert.AreEqual(TestData.validLogin, userName, "User names are not equal");
             });
+            
         }
 
         [TestCase(BrowserType.Chrome)]

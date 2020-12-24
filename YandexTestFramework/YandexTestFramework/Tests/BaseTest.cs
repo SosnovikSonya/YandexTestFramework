@@ -1,17 +1,15 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using YandexTestFramework.Configuration;
 using YandexTestFramework.Pages;
 using YandexTestFramework.Pages.LoginPages;
 using YandexTestFramework.Utils;
 using YandexTestFramework.Utils.Actions;
+using NUnit.Framework.Interfaces;
+using Allure.Commons;
 
 namespace YandexTestFramework.Tests
 {
@@ -44,6 +42,12 @@ namespace YandexTestFramework.Tests
         [TearDown]
         public void BaseTearDown()
         {
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            {
+                AllureResultsUtils.TakeScreenShot(TestContext.CurrentContext.Test.Name);
+                AllureLifecycle.Instance.AddAttachment("Screenshot", "image/png", $"{TestContext.CurrentContext.Test.Name}_screenshot.png");
+            }
+
             DriverProvider.CleanupDriver();
         }
     }
